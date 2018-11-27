@@ -1,5 +1,5 @@
 pytz==2018.4
-django==2.0.5
+django==2.0.8
 pyserial==3.4
 six==1.11.0
 pymodbus==1.5.2
