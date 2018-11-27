@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.utils import timezone
 import django.core.exceptions as djexcept
+from django.contrib.auth.decorators import login_required
 
 import csv
 import time
@@ -15,6 +16,8 @@ from .models import *
 import sms.models as sms
 from sms.views import *
 
+
+@login_required(login_url='/')
 def index(request):
     print('POST:', request.POST)
     if request.POST.get('flag'):

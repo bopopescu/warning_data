@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'slaves.apps.SlavesConfig',
+    #'slaves.apps.SlavesConfig',
     'sms.apps.SmsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'slaves',
 ]
 
 MIDDLEWARE = [
@@ -108,6 +109,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'slaves/static'),
+]
+
+LOGIN_REDIRECT_URL = '/slaves/'
+LOGOUT_REDIRECT_URL = '/'
 
 #### Custom config
 try:
