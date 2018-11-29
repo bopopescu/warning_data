@@ -16,7 +16,7 @@
             <tr>
                 <th scope="row">1</th>
                 <td>Master</td>
-                <td><i class="fa fa-bell" aria-hidden="true"></i></td>
+                <td><i class="fa fa-bell" aria-hidden="true" data-toggle="modal" data-target="#exampleModal"></i></td>
                 <td>@mdo</td>
             </tr>
             <tr>
@@ -52,4 +52,72 @@
         </tbody>
     </table>
 </div>
+
+<!-- Master Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Master</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <h5>Bootstrap 4 Equal Height Cards using Grid</h5>
+                <div class="row">
+                    <div class="col-sm-4 py-2">
+                        <div class="card card-body h-100">
+                            Card. I'm just a simple card-block.
+                        </div>
+                    </div>
+                    <div class="col-sm-4 py-2">
+                        <div class="card h-100 text-white bg-danger">
+                            <div class="card-body">
+                                <h3 class="card-title">Danger</h3>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-outline-light">Outline</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 py-2">
+                        <div class="card h-100 card-body">
+                            Card. I'm just a simple card-block, but I have a little more text!
+                        </div>
+                    </div>
+                    <div class="col-sm-4 py-2">
+                        <div class="card h-100 border-primary">
+                            <div class="card-body">
+                                <h3 class="card-title">Primary</h3>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-outline-secondary">Outline</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 py-2">
+                        <div class="card h-100 card-body">
+                            Card. I'm just a simple card-block.
+                        </div>
+                    </div>
+                    <div class="col-sm-4 py-2">
+                        <div class="card text-white bg-primary">
+                            <div class="card-body">
+                                <h3 class="card-title">Hello</h3>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-outline-light">Outline</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- End Master Modal -->
 {% endblock %}
