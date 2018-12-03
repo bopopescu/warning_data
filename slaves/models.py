@@ -26,18 +26,33 @@ class Sensor(models.Model):
     slave = models.ForeignKey('Slave', on_delete=models.CASCADE)
     isFlags = models.BooleanField(default=False)
     multiplication_factor = models.FloatField(default=1)
+    img = models.ImageField(null=True, blank=True, upload_to='media')
+    has_icon = models.BooleanField(default=False)
+    icon = models.CharField(null=True,blank=True,max_length=250)
+
 
     def __str__(self):
         return self.name
+        
+    def getIcon(self):
+        return self.has_icon
+
 
 class Flag(models.Model):
     name = models.CharField(max_length=100)
     bit_location = models.IntegerField()
     sensor = models.ForeignKey('Sensor', on_delete=models.CASCADE) # XXX:only isFlags==True?
     send_alert = models.BooleanField(default=False)
+    img = models.ImageField(null=True, blank=True, upload_to='media')
+    has_icon = models.BooleanField(default=False)
+    icon = models.CharField(null=True,blank=True,max_length=250)
+
 
     def __str__(self):
         return self.name
+
+    def getIcon(self):
+        return self.has_icon
 
 class Threshold(models.Model):
     threshold = models.FloatField()
