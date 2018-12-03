@@ -51,27 +51,6 @@ def refresh_values(request):
 
     try:
         slave = Slave.objects.get(primary=True)
-
-    except djexcept.ObjectDoesNotExist:
-        err = 'No primary slave found.'
-        print(err)
-        e = {'error': True,
-             'message': err}
-        errors.append(e)
-        result['errors'] = errors
-        result['sensor_data'] = sensor_data
-        return result
-
-    except djexcept.MultipleObjectsReturned:
-        err = 'Multiple primary slaves found, please select one.'
-        print(err)
-        e = {'error': True,
-             'message': err}
-        errors.append(e)
-        result['errors'] = errors
-        result['sensor_data'] = sensor_data
-        return result
-
     except Exception as err:
         print(err)
         e = {'error': True,
@@ -169,16 +148,7 @@ def refresh_values(request):
 
         result['errors'] = errors
         result['sensor_data'] = sensor_data
-
-    except ConnectionException as err:
-        print(err)
-        e = {'error': True,
-             'message': str(err)}
-        errors.append(e)
-        result['errors'] = errors
-        result['sensor_data'] = sensor_data
-        return result
-
+        
     except Exception as err:
         print(err)
         e = {'error': True,
