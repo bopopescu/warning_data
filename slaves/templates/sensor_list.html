@@ -161,7 +161,7 @@
         </div>
         <div class="modal-body">
             <div class="container-fluid">
-                <h5>Bootstrap 4 Equal Height Cards using Grid</h5>
+                <!-- <h5>Bootstrap 4 Equal Height Cards using Grid</h5> -->
                 <div class="row">
                   {% for sensor in sensor_data.Master %}
                   <div class="col-sm-4 py-2">
@@ -171,7 +171,12 @@
                         <td>{{ sensor.name }}</td>
                         <td style="border: 1px solid black;">{{ sensor.value }}</td>
                         <br>
-                        <img src="/static/icons/beacon-green-icon.png">
+                        <!-- <img src="/static/icons/beacon-green-icon.png"> -->
+                        {% if sensor.has_icon %}
+                          <i class="{{ sensor.getIcon }} fa-4x" aria-hidden="true"></i>
+                        {% else %}
+                          <img src="{{ sensor.getIcon }}"" class="img-fluid"/>
+                        {% endif %}
                       </div>
                       {% else %}
                       <div class="card card-body h-100 text-white bg-success">

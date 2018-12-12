@@ -52,7 +52,10 @@ class Flag(models.Model):
         return self.name
 
     def getIcon(self):
-        return self.has_icon
+        if self.has_icon:
+            return self.icon
+        elif self.img:
+            return self.img.url
 
 class Threshold(models.Model):
     threshold = models.FloatField()

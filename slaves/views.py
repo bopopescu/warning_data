@@ -90,7 +90,9 @@ def refresh_values(request):
                     flag_val = (final_value >> flag.bit_location) & 0x01
                     sensor_data.append({
                         'name': flag.name,
-                        'value': flag_val
+                        'value': flag_val,
+                        'getIcon': flag.getIcon(),
+                        'has_icon': flag.has_icon,
                     })
                     if flag_val > 0 and flag.send_alert == True:
                         try:
