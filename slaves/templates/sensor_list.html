@@ -129,12 +129,12 @@
         $('#exModal5').modal('show');
     }
 
-try {
-    loadMap();
-} catch (err) {
-    if (Boolean(debug))
-        console.log(err);
-}
+// try {
+//     loadMap();
+// } catch (err) {
+//     if (Boolean(debug))
+//         console.log(err);
+// }
 
 </script>
 <div class="container">
@@ -170,6 +170,8 @@ try {
                       <div class="card card-body h-100 text-white bg-danger">
                         <td>{{ sensor.name }}</td>
                         <td style="border: 1px solid black;">{{ sensor.value }}</td>
+                        <br>
+                        <img src="/static/icons/beacon-green-icon.png">
                       </div>
                       {% else %}
                       <div class="card card-body h-100 text-white bg-success">
