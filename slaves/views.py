@@ -16,6 +16,8 @@ from .models import *
 import sms.models as sms
 from sms.views import *
 
+from graphos.sources.simple import SimpleDataSource
+from graphos.renderers.gchart import LineChart
 
 @login_required(login_url='/')
 def index(request):
@@ -34,10 +36,27 @@ def index(request):
         sensor_data[name].append(sensor)
 
     system = System.objects.get(id=1) # XXX: hard-coding
+    
+    data =  [
+        ['DateTime', 'Water_Level'],
+        [2004, 100],
+        [2005, 117],
+        [2006, 660],
+        [2007, 103],
+        [2008, 100],
+        [2009, 117],
+        [2010, 660],
+        [2011, 103],
+    ]
+    # DataSource object
+    data_source = SimpleDataSource(data=data)
+    # Chart object
+    chart = LineChart(data_source, height=300, width=1000)
     context = {
         'errors': result.get('errors'),
         'sensor_data': sensor_data,
-        'system_name': system.name
+        'system_name': system.name,
+        'chart': chart,
     }
     return render(request, 'sensor_list.html', context)
 
@@ -260,3 +279,4 @@ def send_alert(message):
 
         if alert.alert_type == 'Email':
             pass                # XXX
+
