@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'slaves',
     'graphos',
+    'data_logger',
 ]
 
 MIDDLEWARE = [

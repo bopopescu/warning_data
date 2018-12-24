@@ -51,7 +51,7 @@ def index(request):
     # DataSource object
     data_source = SimpleDataSource(data=data)
     # Chart object
-    chart = LineChart(data_source, height=300, width=1000)
+    chart = LineChart(data_source, height=300, width=500)
     context = {
         'errors': result.get('errors'),
         'sensor_data': sensor_data,
@@ -192,6 +192,7 @@ def refresh_values(request):
               event_msg=values_string,
               value = 0         # XXX: hard-coding
     )
+    # print(log)
     log.save()
 
     with open('system.log', 'at', newline='') as f: # XXX: db config
@@ -200,7 +201,9 @@ def refresh_values(request):
         writer.writerow([log.timestamp, log.slave_id, log.eventid,
                          log.event_name, log.event_msg, log.value])
 
+    # print(result)
     return result
+    # return render(request, result 'sensor_list.html', context)
 
 
 def toggle_flag(request):
