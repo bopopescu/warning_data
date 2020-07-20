@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'slaves.apps.SlavesConfig',
+    'subordinates.apps.SubordinatesConfig',
     'sms.apps.SmsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
